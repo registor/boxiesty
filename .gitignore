@@ -1,3 +1,107 @@
+# -*- mode: gitignore; -*-
+
+# ======emacs editor======
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+# flymake-mode
+*_flymake.*
+
+# eshell files
+/eshell/history
+/eshell/lastdir
+
+# elpa packages
+/elpa/
+
+# reftex files
+*.rel
+
+# AUCTeX auto folder
+/auto/
+
+# cask packages
+.cask/
+dist/
+
+# Flycheck
+flycheck_*.el
+
+# server auth directory
+/server/
+
+# projectiles files
+.projectile
+
+# directory configuration
+.dir-locals.el
+
+# ======C programming======
+
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# ======Tex/LaTex======
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -10,6 +114,7 @@
 *.fot
 *.cb
 *.cb2
+*.atfi
 .*.lb
 
 ## Intermediate documents:
@@ -39,6 +144,10 @@
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
+
+## Build tool directories for auxiliary files
+# latexrun
+latex.out/
 
 ## Auxiliary and intermediate files from other packages:
 # algorithms
@@ -129,6 +238,7 @@ acs-*.bib
 
 # listings
 *.lol
+*.listing
 
 # makeidx
 *.idx
@@ -147,6 +257,11 @@ acs-*.bib
 
 # minted
 _minted*
+./_minted-main/
+/_minted-main/*
+
+./_minted-cbook/
+/_minted-cbook/*
 *.pyg
 
 # morewrites
@@ -222,6 +337,9 @@ TSWLatexianTemp*
 # Texpad
 .texpadtmp
 
+# LyX
+*.lyx~
+
 # Kile
 *.backup
 
@@ -238,5 +356,4 @@ TSWLatexianTemp*
 # standalone packages
 *.sta
 
-# generated if using elsarticle.cls
-*.spl
+

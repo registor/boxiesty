@@ -1,0 +1,430 @@
+% 使用ctexart文档类（用XeLaTeX编译，直接支持中文）
+\documentclass{ctexart}
+
+%导言区，可以在此引入必要的宏包
+\usepackage{boxie}
+\usepackage{hyperref}
+
+\usepackage{graphicx}
+
+% ========设置标题的格式========
+\ctexset{
+  section = {
+    format+ = \zihao{-4} \heiti \raggedright,
+    name = {,、},
+    number = \chinese{section},
+    beforeskip = 1.0ex plus 0.2ex minus .2ex,
+    afterskip = 1.0ex plus 0.2ex minus .2ex,
+    aftername = \hspace{0pt}
+  },
+  subsection = {
+    format+ = \zihao{5} \heiti \raggedright,
+    % name={\thesubsection、},
+    name = {,、},
+    number = \arabic{subsection},
+    beforeskip = 1.0ex plus 0.2ex minus .2ex,
+    afterskip = 1.0ex plus 0.2ex minus .2ex,
+    aftername = \hspace{0pt}
+  }
+}
+
+\newcommand{\qtmark}[1]{``#1''}
+
+\title{\Large \heiti 采用tcolorbox宏包设计的用于排版终端窗口和代码的宏
+  包boxie.sty}
+\author{\zihao{4} \fangsong 耿楠\\\small \songti 西北农林科技大学信息
+  工程学院，陕西$\cdot$杨凌，712100}
+
+\begin{document} %在document环境中撰写文档
+
+\maketitle
+
+\begin{abstract}
+  在使用\url{https://github.com/latexstudio/ChenLaTeXBookTemplate}提供
+  的\LaTeX 书籍模板排版时，发现该模板中设计代码盒子环境和命令非常实用，
+  另外，该模板还提供了排版终端命令窗口的基本思路。基于此，通过研读该模
+  板的代码，重新设计了用于个Ubuntu、Windows和Mac终端命令窗口的12个排版
+  环境和12个从文件读取窗口内容的排版命令，以期更为方便的排版终端命令窗
+  口。
+
+  该宏包可以为经常有编写终端命令窗口和代码排版的人员提供帮助，但由于作
+  者水平有限，一定存在不足之处，欢迎大家多提宝贵意见和建议。
+\end{abstract}
+
+\section{终端窗口盒子环境与命令}
+\subsection{终端窗口分类}
+\begin{itemize}
+\item 带底部说明的黑底白字(用于屏幕阅读)
+\item 带底部说明的白底黑字(用于打印输出)
+\item 无底部说明的黑底白字(用于屏幕阅读)
+\item 无底部说明的白底黑字(用于打印输出)
+\end{itemize}
+
+\subsection{环境与命令命名规范}
+
+\begin{itemize}
+\item 操作系统前缀
+  \begin{itemize}
+  \item ubt：Ubuntu
+  \item win：Windows
+  \item mac：Mac OS
+  \end{itemize}
+\item 配色中缀
+  \begin{itemize}
+  \item dark：黑底白字
+  \item light：白底黑字
+  \end{itemize}
+\item 底部说明中缀
+  \begin{itemize}
+  \item c：有底部说明
+  \item 空：无底部说明
+  \end{itemize}
+\item 文件后缀
+  \begin{itemize}
+  \item file：窗口内容来自文件
+  \item 空：窗口内容在环境中
+  \end{itemize}
+\end{itemize}
+\subsection{环境与命令列表}
+共计12个环境，分别是：
+\begin{itemize}
+\item Ubuntu
+  \begin{itemize}
+  \item \qtmark{ubtdarkc}：带底部说明的黑底白字
+  \item \qtmark{ubtlightc}：带底部说明的白底黑字
+  \item \qtmark{ubtdark}：无底部说明的黑底白字
+  \item \qtmark{ubtlight}：无底部说明的白底黑字
+  \end{itemize}
+\item Windows
+  \begin{itemize}
+  \item \qtmark{windarkc}：带底部说明的黑底白字
+  \item \qtmark{winlightc}：带底部说明的白底黑字
+  \item \qtmark{windark}：无底部说明的黑底白字
+  \item \qtmark{winlight}：无底部说明的白底黑字
+  \end{itemize}
+\item Mac
+  \begin{itemize}
+  \item \qtmark{macdarkc}：带底部说明的黑底白字
+  \item \qtmark{maclightc}：带底部说明的白底黑字
+  \item \qtmark{macdark}：无底部说明的黑底白字
+  \item \qtmark{maclight}：无底部说明的白底黑字
+  \end{itemize}
+\end{itemize}
+
+共计12个命令，分别是：
+\begin{itemize}
+\item Ubuntu
+  \begin{itemize}
+  \item \qtmark{\textbackslash ubtdarkcfile}：带底部说明的黑底白字，内
+    容来自文件
+  \item \qtmark{\textbackslash ubtlightcfile}：带底部说明的白底黑字，内
+    容来自文件
+  \item \qtmark{\textbackslash ubtdarkfile}：无底部说明的黑底白字，内容
+    来自文件
+  \item \qtmark{\textbackslash ubtlightfile}：无底部说明的白底黑字，内
+    容来自文件
+  \end{itemize}
+\item Windows
+  \begin{itemize}
+  \item \qtmark{\textbackslash windarkcfile}：带底部说明的黑底白字，内
+    容来自文件
+  \item \qtmark{\textbackslash winlightcfile}：带底部说明的白底黑字，内
+    容来自文件
+  \item \qtmark{\textbackslash windarkfile}：无底部说明的黑底白字，内容
+    来自文件
+  \item \qtmark{\textbackslash winlightfile}：无底部说明的白底黑字，内
+    容来自文件
+  \end{itemize}
+\item Mac
+  \begin{itemize}
+  \item \qtmark{\textbackslash macdarkcfile}：带底部说明的黑底白字，内
+    容来自文件
+  \item \qtmark{\textbackslash maclightcfile}：带底部说明的白底黑字，内
+    容来自文件
+  \item \qtmark{\textbackslash macdarkfile}：无底部说明的黑底白字，内
+    容来自文件
+  \item \qtmark{\textbackslash maclightfile}：无底部说明的白底黑字，内
+    容来自文件
+  \end{itemize}
+\end{itemize}
+\subsection{基本使用语法}
+以黑底白字Ubuntu终端窗口排版为例，其排版语法为：
+\subsubsection{环境}
+\begin{langPyOne}[tex]{带底部说明的黑底白字环境}
+  \begin{ubtdarkc}{底部说明}{标题}
+    窗口内容
+  \end{ubtdarkc}
+\end{langPyOne}
+\begin{langPyOne}[tex]{无底部说明的黑底白字环境}
+  \begin{ubtdark}{标题}
+    窗口内容
+  \end{ubtdark}
+\end{langPyOne}
+\subsubsection{命令}
+\begin{langPyOne}[tex]{带底部说明的黑底白字环境}
+  \ubtdarkcfile{底部说明}{标题}{窗口内容文件名}
+\end{langPyOne}
+\begin{langPyOne}[tex]{无底部说明的黑底白字环境}
+  \ubtdarkfile{标题}{窗口内容文件名}
+\end{langPyOne}
+
+\subsection{排版示例}
+% \subsection{Ubuntu终端窗口}
+% 一类是带底部说明的黑底白字(用于屏幕阅读)，另一类是白底黑字(用
+% 于打印)。
+\subsection{Ubuntu终端窗口}
+% \begin{ubtdark}{xxxxxx@xxxxxx-lap:~}
+%   xxxxxx@xxxxxx-lap:~$ ls
+%   Desktop     Downloads   p2         Public   Templates   Videos
+%   Documents   Music       Pictures   snap    '#test#'     workspace
+%   xxxxxx@xxxxxx-lap:~$
+% \end{ubtdark}
+% \begin{ubtlight}{xxxxxx@xxxxxx-lap:~}
+%   xxxxxx@xxxxxx-lap:~$ ls
+%   Desktop     Downloads   p2         Public   Templates   Videos
+%   Documents   Music       Pictures   snap    '#test#'     workspace
+%   xxxxxx@xxxxxx-lap:~$
+% \end{ubtlight}
+% \begin{ubtdarkc}{ls 是查看文件命令}{xxxxxx@xxxxxx-lap:~}
+%   xxxxxx@xxxxxx-lap:~$ ls
+%   Desktop     Downloads   p2         Public   Templates   Videos
+%   Documents   Music       Pictures   snap    '#test#'     workspace
+%   xxxxxx@xxxxxx-lap:~$
+% \end{ubtdarkc}
+% \begin{ubtlightc}{ls 是查看文件命令}{xxxxxx@xxxxxx-lap:~}
+%   xxxxxx@xxxxxx-lap:~$ ls
+%   Desktop     Downloads   p2         Public   Templates   Videos
+%   Documents   Music       Pictures   snap    '#test#'     workspace
+%   xxxxxx@xxxxxx-lap:~$
+% \end{ubtlightc}
+% \subsubsection{命令排版}
+\ubtdarkfile{xxxxxx@xxxxxx-lap:~}{testls.sh}
+\ubtlightfile{xxxxxx@xxxxxx-lap:~}{testls.sh}
+\ubtdarkcfile{ls 是查看文件命令}{xxxxxx@xxxxxx-lap:~}{testls.sh}
+\ubtlightcfile{ls 是查看文件命令}{xxxxxx@xxxxxx-lap:~}{testls.sh}    
+\subsection{Windows命令行窗口}
+% \subsubsection{环境排版}
+% \begin{windark}{显示当前目录中的文件}
+%   C:\Users\Administrator 的目录
+%   2018/07/21  15:39    <DIR>          .
+%   2018/07/21  15:39    <DIR>          ..
+%   2018/07/13  08:35    <DIR>          3D Objects
+%   2018/07/13  08:35    <DIR>          Contacts
+%   2018/08/06  07:46    <DIR>          Desktop
+%                   2 个文件      6,029,312 字节
+%                  18 个目录 14,035,107,840 可用字节    
+% \end{windark}
+% \begin{winlight}{显示当前目录中的文件}
+%   C:\Users\Administrator 的目录
+%   2018/07/21  15:39    <DIR>          .
+%   2018/07/21  15:39    <DIR>          ..
+%   2018/07/13  08:35    <DIR>          3D Objects
+%   2018/07/13  08:35    <DIR>          Contacts
+%   2018/08/06  07:46    <DIR>          Desktop
+%                   2 个文件      6,029,312 字节
+%                  18 个目录 14,035,107,840 可用字节 
+% \end{winlight}
+% \begin{windarkc}{dir 是查看文件命令}{显示当前目录中的文件}
+%   C:\Users\Administrator 的目录
+%   2018/07/21  15:39    <DIR>          .
+%   2018/07/21  15:39    <DIR>          ..
+%   2018/07/13  08:35    <DIR>          3D Objects
+%   2018/07/13  08:35    <DIR>          Contacts
+%   2018/08/06  07:46    <DIR>          Desktop
+%                   2 个文件      6,029,312 字节
+%                  18 个目录 14,035,107,840 可用字节 
+% \end{windarkc}
+% \begin{winlightc}{dir 是查看文件命令}{显示当前目录中的文件}
+%   C:\Users\Administrator 的目录
+%   2018/07/21  15:39    <DIR>          .
+%   2018/07/21  15:39    <DIR>          ..
+%   2018/07/13  08:35    <DIR>          3D Objects
+%   2018/07/13  08:35    <DIR>          Contacts
+%   2018/08/06  07:46    <DIR>          Desktop
+%                   2 个文件      6,029,312 字节
+%                  18 个目录 14,035,107,840 可用字节     
+% \end{winlightc}   
+% \subsubsection{命令排版}
+\windarkfile{显示当前目录中的文件}{test.bat}
+\winlightfile{显示当前目录中的文件}{test.bat}
+\windarkcfile{dir 是查看文件命令}{显示当前目录中的文件}{test.bat}
+\winlightcfile{dir 是查看文件命令}{显示当前目录中的文件}{test.bat}
+\subsection{Mac终端窗口}
+% \subsubsection{环境排版}
+% \begin{macdark}{xxxxxx@lap:~}
+%   xxxxxx@lap:~/Desktop$ git clone *******
+%   正克隆到 'xxxxxx'...
+%   remote: Enumerating objects: 106, done.
+%   remote: Counting objects: 100% (106/106), done.
+%   remote: Compressing objects: 100% (105/105), done.
+%   remote: Total 106 (delta 9), reused 0 (delta 0)
+%   接收对象中: 100% (106/106), 237.88 MiB | 730.00 KiB/s, 完成.
+%   处理 delta 中: 100% (9/9), 完成.
+%   正在检出文件: 100% (75/75), 完成.
+%   xxxxxx@lap:~/Desktop$ 
+% \end{macdark}
+% \begin{maclight}{xxxxxx@lap:~}
+%   xxxxxx@lap:~/Desktop$ git clone *******
+%   正克隆到 'xxxxxx'...
+%   remote: Enumerating objects: 106, done.
+%   remote: Counting objects: 100% (106/106), done.
+%   remote: Compressing objects: 100% (105/105), done.
+%   remote: Total 106 (delta 9), reused 0 (delta 0)
+%   接收对象中: 100% (106/106), 237.88 MiB | 730.00 KiB/s, 完成.
+%   处理 delta 中: 100% (9/9), 完成.
+%   正在检出文件: 100% (75/75), 完成.
+%   xxxxxx@lap:~/Desktop$ 
+% \end{maclight}
+% \begin{macdarkc}{克隆Github远程仓库}{xxxxxx@lap:~}
+%   xxxxxx@lap:~/Desktop$ git clone *******
+%   正克隆到 'xxxxxx'...
+%   remote: Enumerating objects: 106, done.
+%   remote: Counting objects: 100% (106/106), done.
+%   remote: Compressing objects: 100% (105/105), done.
+%   remote: Total 106 (delta 9), reused 0 (delta 0)
+%   接收对象中: 100% (106/106), 237.88 MiB | 730.00 KiB/s, 完成.
+%   处理 delta 中: 100% (9/9), 完成.
+%   正在检出文件: 100% (75/75), 完成.
+%   xxxxxx@lap:~/Desktop$ 
+% \end{macdarkc}
+% \begin{maclightc}{克隆Github远程仓库}{xxxxxx@lap:~}
+%   xxxxxx@lap:~/Desktop$ git clone *******
+%   正克隆到 'xxxxxx'...
+%   remote: Enumerating objects: 106, done.
+%   remote: Counting objects: 100% (106/106), done.
+%   remote: Compressing objects: 100% (105/105), done.
+%   remote: Total 106 (delta 9), reused 0 (delta 0)
+%   接收对象中: 100% (106/106), 237.88 MiB | 730.00 KiB/s, 完成.
+%   处理 delta 中: 100% (9/9), 完成.
+%   正在检出文件: 100% (75/75), 完成.
+%   xxxxxx@lap:~/Desktop$ 
+% \end{maclightc}   
+% \subsubsection{命令排版}
+\macdarkfile{xxxxxx@lap:~}{testsh}
+\maclightfile{xxxxxx@lap:~}{testsh}
+\macdarkcfile{克隆Github远程仓库}{xxxxxx@lap:~}{testsh}
+\maclightcfile{克隆Github远程仓库}{xxxxxx@lap:~}{testsh}
+
+\subsection{通用环境与命令}
+定义了2个通用Ubuntu黑底白字样式的终端窗口环境，可以通过可选参数指定窗口内容的语
+言，其基本语法是
+\begin{langPyOne}[tex]{有底部说明}
+  \begin{GitExample}[代码语言]{底部说明}{标题}
+     ...
+  \end{GitExample} 
+\end{langPyOne}
+和
+\begin{langPyOne}[tex]{无底部说明}
+  \begin{GitExampla}[代码语言]{标题}
+     ...
+  \end{GitExampla} 
+\end{langPyOne}
+及
+\begin{langPyOne}[tex]{无底部说明}
+  \gitfile[代码语言]{标题}{文件名}
+\end{langPyOne}  
+
+\section{代码排版环境与命令}
+\subsection{代码排版样式分类 }
+\begin{itemize}
+\item 带底部说明无交叉引用
+\item 无底部说明无交叉引用
+\item 无底部说明有交叉引用
+\end{itemize}
+\subsection{环境与命令列表}
+\subsubsection{环境}
+\begin{itemize}
+\item \qtmark{langPyTwo}：带底部说明无交叉引用代码排版环境
+\item \qtmark{langPyOne}：无底部说明无交叉引用代码排版环境
+\item \qtmark{langCVOne}：无底部说明有交叉引用代码排版环境
+\end{itemize}
+\subsubsection{命令}
+\begin{itemize}
+\item \qtmark{\textbackslash langPyfile}：无底部说明无交叉引用代码排版
+  命令，代码带自文件
+\item \qtmark{\textbackslash langCVfile}：无底部说明有交叉引用代码排版
+  命令，代码带自文件
+\end{itemize}
+
+\subsection{基本语法}
+\begin{langPyOne}[tex]{有底部说明无交叉引用代码排版环境}
+  \begin{langPyTwo}[语言]{底部说明}{标题}
+     ...
+   \end{langPyTwo} 
+\end{langPyOne}
+
+\langPyfile[tex]{无底部说明无交叉引用代码排版环境}{langpyone.tex} 
+
+\begin{langPyOne}[tex]{无底部说明有交叉引用代码排版环境}
+  \begin{langCVOne}[语言][交叉引用标签][显示语言名]{标题}
+     ...
+   \end{langCVOne} 
+\end{langPyOne}
+
+\begin{langPyOne}[tex]{排版命令使用}
+\langCVfile[语言][交叉引用标签][语言名显示]{标题}{文件名}
+\langPyfile[语言]{标题}{文件名}
+\end{langPyOne}
+其中， 方括号的参数是可选的。\qtmark{[语言名显示]}是显示在标题中要排版
+代码的语言名称。
+
+\subsection{代码排版实例}
+\begin{langPyTwo}[c]{这是C语言代码排版一个实例}{C语言代码排版}
+  #include<stdio.h>
+  #include<stdlib.h>
+
+  int main()
+  {
+    printf("Hello World!\n");
+    return 0;
+  }
+\end{langPyTwo}
+
+\begin{langPyOne}[c]{C语言代码排版}
+  #include<stdio.h>
+  #include<stdlib.h>
+
+  int main()
+  {
+    printf("Hello World!\n");
+    return 0;
+  }
+\end{langPyOne}
+
+用\qtmark{langCVOne}环境可以实现交叉引用，如代码\ref{ccode01}所示。
+\begin{langCVOne}[c][ccode01][C]{C语言代码排版}
+  #include<stdio.h>
+  #include<stdlib.h>
+
+  int main()
+  {
+    printf("Hello World!\n");
+    return 0;
+  }
+\end{langCVOne}
+
+也可以用命令将代码文件直接载入进行排版
+\langPyfile[c]{C语言代码排版}{testc.c}
+
+用\qtmark{\textbackslash langCVfile}命令可以实现交叉引用，如代码\ref{ccode02}所示。
+\langCVfile[matlab][ccode02][Matlab]{Matlab语言代码排版}{testm.m}
+
+
+\section{注意事项}
+\subsection{字体}
+本宏包需要使用fontawesome5图标字体支持，请在
+\url{https://fontawesome.com/}下载安装。
+\subsection{代码排版引擎}
+本宏包建议使用\qtmark{minted}宏包实现代码的排版，用\qtmark{xelatex
+  --shell-escape main.tex}编译tex文件，但如果没有安装minted
+需要的python及其pygments模块，请提前安装该模块。
+
+若在编译是不使用\qtmark{--shell-escape}参数，则会自动切换到用listings
+排版代码，注意有部分代码名称与pygments定义不一致，请自行查阅相关手册。
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
