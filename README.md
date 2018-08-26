@@ -38,66 +38,121 @@
 2. 可以使用除Windows记事本外的任何文本编辑器编辑LaTeX代码。
 3. 需要安装Python及其Pygments模块以支持minted宏包。
 4. 需要安装webfonts5.0图标字体，若使用Ubuntu，直接将所有字体文件拷贝到用户目录的“.font”文件夹中，然后在该文件来中执行
+
 	sudo mkfontscale(创建字体的fonts.scale文件，它用来控制字体旋转/缩放)
+
 	sudo mkfontdir (创建字体的fonts.dir文件，它用来控制字体粗斜体产生)
+
 	sudo fc-cache -fv (建立字体缓存信息，也就是让系统认识字体)
 
 ###更新内容
 1. 12个终端窗口环境
    ubtdarkc、windarkc和macdarkc环境带有两个参数，用于排版带有底部说明的黑底白字终端窗口，第一个参数是底部说明文字，第二个参数是标题。
+
    ubtlightc、winlightc和maclightc环境带有两个参数，用于排版带有底部说明的白底黑字终端窗口，第一个参数是底部说明文字，第二个参数是标题。
+
    如：
+
    \begin{ubtdarkc}{底部说明}{标题}
+
    ...
+
    \end{ubtdarkc}
+
    ubtdark、windark和macdark环境带有一个参数，用于排版黑底白字终端窗口，参数是标题。
+
    ubtlight、winlight和maclight环境带有一个参数，用于排版白底黑字终端窗口，参数是标题。
+
    如：
+
    \begin{ubtdark}{标题}
+
    ...
+
    \end{ubtdark}
+
 2. 12个终端窗口排版命令
+
    带底部说明黑底白字：
+
    \ubtdarkcfile{底部说明}{标题}{窗口内容文件名}
+
    \windarkcfile{底部说明}{标题}{窗口内容文件名} 
+
    \macdarkcfile{底部说明}{标题}{窗口内容文件名} 
+
    带底部说明白底黑字：
+
    \ubtlightcfile{底部说明}{标题}{窗口内容文件名}
+
    \winlightcfile{底部说明}{标题}{窗口内容文件名} 
+
    \maclightcfile{底部说明}{标题}{窗口内容文件名} 
+
    黑底白字：
+
    \ubtdarkfile{标题}{窗口内容文件名}
+
    \windarkfile{标题}{窗口内容文件名} 
+
    \macdarkfile{标题}{窗口内容文件名} 
+
    白底黑字：
+
    \ubtlightfile{标题}{窗口内容文件名}
+
    \winlightfile{标题}{窗口内容文件名} 
+
    \maclightfile{标题}{窗口内容文件名} 
+
 3. 2个通用Ubuntu样式终端窗口环境，可以指定窗口内容代码语言
+
    \begin{GitExample}[代码语言]{底部说明}{标题}
+
      ...
+
    \end{GitExample} 
+
    和
+
    \begin{GitExampla}[代码语言]{标题}
+
      ...
+
    \end{GitExampla} 
+
 4. 1个通用Ubuntu终端窗口排版命令，直接通过导入窗口内容，可以指定内容代码语言
+
    \gitfile[代码语言]{标题}{文件名}
+
 5. 2个不需要编号的通用代码排版环境，可以指定代码语言和底部说明
+
    \begin{langPyTwo}[代码语言]{底部说明}{标题}
+
      ...
+
    \end{langPyTwo} 
+
    和
+
    \begin{langPyOne}[代码语言]{标题}
+
      ...
+
    \end{langPyOne} 
+
 6. 1个可以编号的通用代码排版环境，可以指定代码语言和底部说明
+
    \begin{langCVOne}[代码语言][交叉引用标签][显示语言名]{标题}
+
      ...
+
    \end{langCVOne} 
+
 7. 1个可以编号的通用代码排版命令，直接通过导入代码文件来排版代码
 
    \langCVfile[代码语言][交叉引用标签][语言名显示]{标题}{文件名}
+
 8. 1个不带编号的通用代码排版命令，直接通过导入代码文件来排版代码
 
    \langPyfile[代码语言]{标题}{文件名}
