@@ -169,137 +169,52 @@
 \end{langPyOne}
 
 \subsection{排版示例}
-% \subsection{Ubuntu终端窗口}
-% 一类是带底部说明的黑底白字(用于屏幕阅读)，另一类是白底黑字(用
-% 于打印)。
 \subsection{Ubuntu终端窗口}
-% \begin{ubtdark}{xxxxxx@xxxxxx-lap:~}
-%   xxxxxx@xxxxxx-lap:~$ ls
-%   Desktop     Downloads   p2         Public   Templates   Videos
-%   Documents   Music       Pictures   snap    '#test#'     workspace
-%   xxxxxx@xxxxxx-lap:~$
-% \end{ubtdark}
-% \begin{ubtlight}{xxxxxx@xxxxxx-lap:~}
-%   xxxxxx@xxxxxx-lap:~$ ls
-%   Desktop     Downloads   p2         Public   Templates   Videos
-%   Documents   Music       Pictures   snap    '#test#'     workspace
-%   xxxxxx@xxxxxx-lap:~$
-% \end{ubtlight}
-% \begin{ubtdarkc}{ls 是查看文件命令}{xxxxxx@xxxxxx-lap:~}
-%   xxxxxx@xxxxxx-lap:~$ ls
-%   Desktop     Downloads   p2         Public   Templates   Videos
-%   Documents   Music       Pictures   snap    '#test#'     workspace
-%   xxxxxx@xxxxxx-lap:~$
-% \end{ubtdarkc}
-% \begin{ubtlightc}{ls 是查看文件命令}{xxxxxx@xxxxxx-lap:~}
-%   xxxxxx@xxxxxx-lap:~$ ls
-%   Desktop     Downloads   p2         Public   Templates   Videos
-%   Documents   Music       Pictures   snap    '#test#'     workspace
-%   xxxxxx@xxxxxx-lap:~$
-% \end{ubtlightc}
-% \subsubsection{命令排版}
-\ubtdarkfile{xxxxxx@xxxxxx-lap:~}{testls.sh}
-\ubtlightfile{xxxxxx@xxxxxx-lap:~}{testls.sh}
+% 用环境排版，内容直接录入
+\begin{ubtdark}{xxxxxx@xxxxxx-lap:~}
+  xxxxxx@xxxxxx-lap:~$ ls
+  Desktop     Downloads   p2         Public   Templates   Videos
+  Documents   Music       Pictures   snap    '#test#'     workspace
+  xxxxxx@xxxxxx-lap:~$
+\end{ubtdark}
+\begin{ubtlight}{xxxxxx@xxxxxx-lap:~}
+  xxxxxx@xxxxxx-lap:~$ ls
+  Desktop     Downloads   p2         Public   Templates   Videos
+  Documents   Music       Pictures   snap    '#test#'     workspace
+  xxxxxx@xxxxxx-lap:~$
+\end{ubtlight}
+
+% 用命令排版，内容来自文件
 \ubtdarkcfile{ls 是查看文件命令}{xxxxxx@xxxxxx-lap:~}{testls.sh}
 \ubtlightcfile{ls 是查看文件命令}{xxxxxx@xxxxxx-lap:~}{testls.sh}    
 \subsection{Windows命令行窗口}
-% \subsubsection{环境排版}
-% \begin{windark}{显示当前目录中的文件}
-%   C:\Users\Administrator 的目录
-%   2018/07/21  15:39    <DIR>          .
-%   2018/07/21  15:39    <DIR>          ..
-%   2018/07/13  08:35    <DIR>          3D Objects
-%   2018/07/13  08:35    <DIR>          Contacts
-%   2018/08/06  07:46    <DIR>          Desktop
-%                   2 个文件      6,029,312 字节
-%                  18 个目录 14,035,107,840 可用字节    
-% \end{windark}
-% \begin{winlight}{显示当前目录中的文件}
-%   C:\Users\Administrator 的目录
-%   2018/07/21  15:39    <DIR>          .
-%   2018/07/21  15:39    <DIR>          ..
-%   2018/07/13  08:35    <DIR>          3D Objects
-%   2018/07/13  08:35    <DIR>          Contacts
-%   2018/08/06  07:46    <DIR>          Desktop
-%                   2 个文件      6,029,312 字节
-%                  18 个目录 14,035,107,840 可用字节 
-% \end{winlight}
-% \begin{windarkc}{dir 是查看文件命令}{显示当前目录中的文件}
-%   C:\Users\Administrator 的目录
-%   2018/07/21  15:39    <DIR>          .
-%   2018/07/21  15:39    <DIR>          ..
-%   2018/07/13  08:35    <DIR>          3D Objects
-%   2018/07/13  08:35    <DIR>          Contacts
-%   2018/08/06  07:46    <DIR>          Desktop
-%                   2 个文件      6,029,312 字节
-%                  18 个目录 14,035,107,840 可用字节 
-% \end{windarkc}
-% \begin{winlightc}{dir 是查看文件命令}{显示当前目录中的文件}
-%   C:\Users\Administrator 的目录
-%   2018/07/21  15:39    <DIR>          .
-%   2018/07/21  15:39    <DIR>          ..
-%   2018/07/13  08:35    <DIR>          3D Objects
-%   2018/07/13  08:35    <DIR>          Contacts
-%   2018/08/06  07:46    <DIR>          Desktop
-%                   2 个文件      6,029,312 字节
-%                  18 个目录 14,035,107,840 可用字节     
-% \end{winlightc}   
-% \subsubsection{命令排版}
+% 用命令排版，内容来自文件
 \windarkfile{显示当前目录中的文件}{test.bat}
 \winlightfile{显示当前目录中的文件}{test.bat}
-\windarkcfile{dir 是查看文件命令}{显示当前目录中的文件}{test.bat}
-\winlightcfile{dir 是查看文件命令}{显示当前目录中的文件}{test.bat}
+
+% 用环境排版，内容直接录入
+\begin{windarkc}{dir 是查看文件命令}{显示当前目录中的文件}
+  C:\Users\Administrator 的目录
+  2018/07/21  15:39    <DIR>          .
+  2018/07/21  15:39    <DIR>          ..
+  2018/07/13  08:35    <DIR>          3D Objects
+  2018/07/13  08:35    <DIR>          Contacts
+  2018/08/06  07:46    <DIR>          Desktop
+                  2 个文件      6,029,312 字节
+                 18 个目录 14,035,107,840 可用字节 
+\end{windarkc}
+\begin{winlightc}{dir 是查看文件命令}{显示当前目录中的文件}
+  C:\Users\Administrator 的目录
+  2018/07/21  15:39    <DIR>          .
+  2018/07/21  15:39    <DIR>          ..
+  2018/07/13  08:35    <DIR>          3D Objects
+  2018/07/13  08:35    <DIR>          Contacts
+  2018/08/06  07:46    <DIR>          Desktop
+                  2 个文件      6,029,312 字节
+                 18 个目录 14,035,107,840 可用字节     
+\end{winlightc}
 \subsection{Mac终端窗口}
-% \subsubsection{环境排版}
-% \begin{macdark}{xxxxxx@lap:~}
-%   xxxxxx@lap:~/Desktop$ git clone *******
-%   正克隆到 'xxxxxx'...
-%   remote: Enumerating objects: 106, done.
-%   remote: Counting objects: 100% (106/106), done.
-%   remote: Compressing objects: 100% (105/105), done.
-%   remote: Total 106 (delta 9), reused 0 (delta 0)
-%   接收对象中: 100% (106/106), 237.88 MiB | 730.00 KiB/s, 完成.
-%   处理 delta 中: 100% (9/9), 完成.
-%   正在检出文件: 100% (75/75), 完成.
-%   xxxxxx@lap:~/Desktop$ 
-% \end{macdark}
-% \begin{maclight}{xxxxxx@lap:~}
-%   xxxxxx@lap:~/Desktop$ git clone *******
-%   正克隆到 'xxxxxx'...
-%   remote: Enumerating objects: 106, done.
-%   remote: Counting objects: 100% (106/106), done.
-%   remote: Compressing objects: 100% (105/105), done.
-%   remote: Total 106 (delta 9), reused 0 (delta 0)
-%   接收对象中: 100% (106/106), 237.88 MiB | 730.00 KiB/s, 完成.
-%   处理 delta 中: 100% (9/9), 完成.
-%   正在检出文件: 100% (75/75), 完成.
-%   xxxxxx@lap:~/Desktop$ 
-% \end{maclight}
-% \begin{macdarkc}{克隆Github远程仓库}{xxxxxx@lap:~}
-%   xxxxxx@lap:~/Desktop$ git clone *******
-%   正克隆到 'xxxxxx'...
-%   remote: Enumerating objects: 106, done.
-%   remote: Counting objects: 100% (106/106), done.
-%   remote: Compressing objects: 100% (105/105), done.
-%   remote: Total 106 (delta 9), reused 0 (delta 0)
-%   接收对象中: 100% (106/106), 237.88 MiB | 730.00 KiB/s, 完成.
-%   处理 delta 中: 100% (9/9), 完成.
-%   正在检出文件: 100% (75/75), 完成.
-%   xxxxxx@lap:~/Desktop$ 
-% \end{macdarkc}
-% \begin{maclightc}{克隆Github远程仓库}{xxxxxx@lap:~}
-%   xxxxxx@lap:~/Desktop$ git clone *******
-%   正克隆到 'xxxxxx'...
-%   remote: Enumerating objects: 106, done.
-%   remote: Counting objects: 100% (106/106), done.
-%   remote: Compressing objects: 100% (105/105), done.
-%   remote: Total 106 (delta 9), reused 0 (delta 0)
-%   接收对象中: 100% (106/106), 237.88 MiB | 730.00 KiB/s, 完成.
-%   处理 delta 中: 100% (9/9), 完成.
-%   正在检出文件: 100% (75/75), 完成.
-%   xxxxxx@lap:~/Desktop$ 
-% \end{maclightc}   
-% \subsubsection{命令排版}
+% 用命令排版，内容来自文件
 \macdarkfile{xxxxxx@lap:~}{testsh}
 \maclightfile{xxxxxx@lap:~}{testsh}
 \macdarkcfile{克隆Github远程仓库}{xxxxxx@lap:~}{testsh}
@@ -369,7 +284,8 @@
 代码的语言名称。
 
 \subsection{代码排版实例}
-\begin{langPyTwo}[c]{这是C语言代码排版一个实例}{C语言代码排版}
+\begin{langPyTwo}[c]{这是C语言代码排版一个实例}{C语言代码排版
+    (langPyTwo环境)}
   #include<stdio.h>
   #include<stdlib.h>
 
@@ -380,34 +296,28 @@
   }
 \end{langPyTwo}
 
-\begin{langPyOne}[c]{C语言代码排版}
-  #include<stdio.h>
-  #include<stdlib.h>
-
-  int main()
-  {
-    printf("Hello World!\n");
-    return 0;
+\begin{langPyOne}[java]{Java语言代码排版(langPyOne环境)}
+  public class HelloWorld {
+    public static void main(String[] args){
+      System.out.println("Hello World!");
+    }
   }
 \end{langPyOne}
 
-用\qtmark{langCVOne}环境可以实现交叉引用，如代码\ref{ccode01}所示。
-\begin{langCVOne}[c][ccode01][C]{C语言代码排版}
-  #include<stdio.h>
-  #include<stdlib.h>
+\langPyfile[c]{C语言代码排版(langPyfile命令)}{testc.c}
 
-  int main()
-  {
-    printf("Hello World!\n");
-    return 0;
-  }
+用\qtmark{langCVOne}环境可以实现交叉引用，如代码\ref{ccode01}所示。
+\begin{langCVOne}[python][ccode01][Python]{Python(langCVOne环境)}
+  # -*- coding: UTF-8 -*-
+
+  # Filename : helloworld.py
+  # 该实例输出 Hello World!
+
+  print('Hello World!')
 \end{langCVOne}
 
-也可以用命令将代码文件直接载入进行排版
-\langPyfile[c]{C语言代码排版}{testc.c}
-
 用\qtmark{\textbackslash langCVfile}命令可以实现交叉引用，如代码\ref{ccode02}所示。
-\langCVfile[matlab][ccode02][Matlab]{Matlab语言代码排版}{testm.m}
+\langCVfile[matlab][ccode02][Matlab]{Matlab(langCVfile命令)}{testm.m}
 
 
 \section{注意事项}
