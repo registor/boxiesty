@@ -19,6 +19,7 @@
 \RequirePackage{varwidth}
 \RequirePackage{amssymb}
 \RequirePackage{xcolor}%[dvipsnames]
+\usetikzlibrary{shapes.geometric}
 %------------------------------------------------------------------------------------
 % 定义颜色
 %------------------------------------------------------------------------------------
@@ -40,6 +41,9 @@
 \definecolor{AppleYellow}{RGB}{255,189,46}
 \definecolor{AppleGreen}{RGB}{39,201,63}
 \definecolor{AppleGray}{HTML}{D8D6D9}
+
+\definecolor{WinGray}{HTML}{FFFFFF}
+\definecolor{WinBlue}{HTML}{1883D7}
 
 %------------------------------------------------------------------------------------
 % 中文字号设置
@@ -90,6 +94,12 @@
   \begin{tikzpicture}[x=2.4ex,y=2.4ex,line width=0.15ex,scale=1]
     \shade [shading=ball,left color=ogray,right color=ogray!50!white] (0,0) circle (0.5);
     \draw[termimal](-0.25,-0.2)rectangle(0.25,0.2);
+  \end{tikzpicture}
+}
+
+\newcommand{\WindowsLogo}{%
+  \begin{tikzpicture}[square/.style={regular polygon,regular polygon sides=4},scale=0.65, every node/.style={scale=0.65}]
+    \node[square,draw,fill=black,text=white] at (0, 0) (a) {\small \faTerminal};
   \end{tikzpicture}
 }
 
@@ -147,30 +157,30 @@
   % win10 terminal base style
   win10/.style={%
     skin=bicolor,%
-    boxrule=0.2mm,%
+    boxrule=0.1mm,%
     %toptitle=1ex,
     sharp corners,
     breakable,%    
-    colbacktitle=windows,%
-    colframe=windows,%
+    colbacktitle=WinGray,%
+    colframe=WinGray,%
     coltitle=black,%
     fonttitle=\sffamily,%\bfseries,
     fontupper=\small\sffamily,
     fontlower=\small\sffamily,
     frame style={%
-      draw=windows,%
-      left color=windows,%
-      right color=windows%
+      draw=WinBlue,%
+      left color=WinBlue,%
+      right color=WinBlue%
     },%
     overlay unbroken = {%
-      \node[inner sep=0pt,anchor=north west,yshift=-5pt,xshift=1.2pt,text=black]
-      at (frame.north west){\small ~\faWindows};      
+      \node[inner sep=0pt,anchor=north west,yshift=-3pt,xshift=1.2pt,text=black]
+      at (frame.north west){\WindowsLogo};% \fbox{\faTerminal}     
       \node[inner sep=0pt,anchor=north east,yshift=-5pt,xshift=-8pt,text=black] at (frame.north
       east){\rule{0.8em}{0.6pt}\quad$\square$\quad{\Large$\times$}};    
     },%
     overlay first = {%
-      \node[inner sep=0pt,anchor=north west,yshift=-5pt,xshift=1.0pt,text=black]
-      at (frame.north west){\small ~\faWindows};
+      \node[inner sep=0pt,anchor=north west,yshift=-3pt,xshift=1.0pt,text=black]
+      at (frame.north west){\WindowsLogo};%\small ~\faWindows
       \node[inner sep=0pt,anchor=north east,yshift=-5pt,xshift=-8pt,text=black] at (frame.north
       east){\rule{0.8em}{0.6pt}\quad$\square$\quad{\Large$\times$}};      
     }%
