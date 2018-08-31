@@ -98,8 +98,8 @@
 }
 
 \newcommand{\WindowsLogo}{%
-  \begin{tikzpicture}[square/.style={regular polygon,regular polygon sides=4},scale=0.65, every node/.style={scale=0.65}]
-    \node[square,draw,fill=black,text=white] at (0, 0) (a) {\small \faTerminal};
+  \begin{tikzpicture}[square/.style={regular polygon,regular polygon sides=4},scale=0.5, every node/.style={scale=0.5}]
+    \node[square,draw,thick,fill=black,text=white] at (0, 0) (a) {\small \faTerminal};
   \end{tikzpicture}
 }
 
@@ -174,13 +174,13 @@
     },%
     overlay unbroken = {%
       \node[inner sep=0pt,anchor=north west,yshift=-3pt,xshift=1.2pt,text=black]
-      at (frame.north west){\WindowsLogo};% \fbox{\faTerminal}     
+      at (frame.north west){~\WindowsLogo};% \fbox{\faTerminal}     
       \node[inner sep=0pt,anchor=north east,yshift=-5pt,xshift=-8pt,text=black] at (frame.north
       east){\rule{0.8em}{0.6pt}\quad$\square$\quad{\Large$\times$}};    
     },%
     overlay first = {%
       \node[inner sep=0pt,anchor=north west,yshift=-3pt,xshift=1.0pt,text=black]
-      at (frame.north west){\WindowsLogo};%\small ~\faWindows
+      at (frame.north west){~\WindowsLogo};%\small ~\faWindows
       \node[inner sep=0pt,anchor=north east,yshift=-5pt,xshift=-8pt,text=black] at (frame.north
       east){\rule{0.8em}{0.6pt}\quad$\square$\quad{\Large$\times$}};      
     }%
