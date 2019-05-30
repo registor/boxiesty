@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{boxie}[2018/08/25 v1.0, GENG Nan nangeng@qq.com with contributions ZHANG Chennan chennanzhang@gmail.com.]
+\ProvidesPackage{boxie}[2019/05/30 v1.1, GENG Nan nangeng@qq.com with contributions ZHANG Chennan chennanzhang@gmail.com.]
 %--------------------------------------------------------------------------------
 % 使用fontawesome5符号字体
 % \RequirePackage{fontawesome}之前的两句是必须的，否则用ubuntu下用xelatex编译会出错。
@@ -20,6 +20,7 @@
 \RequirePackage{amssymb}
 \RequirePackage{xcolor}%[dvipsnames]
 \usetikzlibrary{shapes.geometric}
+
 %------------------------------------------------------------------------------------
 % 定义颜色
 %------------------------------------------------------------------------------------
@@ -120,13 +121,13 @@
       right color=AppleGray%
     },%
     overlay unbroken = {%
-      \node[inner sep=0pt,anchor=north west,yshift=-5pt,xshift=10pt,text=white]
+      \node[inner sep=0pt,anchor=north west,yshift=-4pt,xshift=10pt,text=white]
       at (frame.north west) {\textcolor{AppleRed}{\faCircle}
         \textcolor{AppleYellow}{\faCircle}
         \textcolor{AppleGreen}{\faCircle}};
     },%
     overlay first = {%
-      \node[inner sep=0pt,anchor=north west,yshift=-5pt,xshift=10pt,text=white]
+      \node[inner sep=0pt,anchor=north west,yshift=-4pt,xshift=10pt,text=white]
       at (frame.north west) {\textcolor{AppleRed}{\faCircle}
         \textcolor{AppleYellow}{\faCircle}
         \textcolor{AppleGreen}{\faCircle}};
@@ -175,13 +176,13 @@
     overlay unbroken = {%
       \node[inner sep=0pt,anchor=north west,yshift=-3pt,xshift=1.2pt,text=black]
       at (frame.north west){~\WindowsLogo};% \fbox{\faTerminal}     
-      \node[inner sep=0pt,anchor=north east,yshift=-5pt,xshift=-8pt,text=black] at (frame.north
+      \node[inner sep=0pt,anchor=north east,yshift=-3pt,xshift=-8pt,text=black] at (frame.north
       east){\rule{0.8em}{0.6pt}\quad$\square$\quad{\Large$\times$}};    
     },%
     overlay first = {%
       \node[inner sep=0pt,anchor=north west,yshift=-3pt,xshift=1.0pt,text=black]
       at (frame.north west){~\WindowsLogo};%\small ~\faWindows
-      \node[inner sep=0pt,anchor=north east,yshift=-5pt,xshift=-8pt,text=black] at (frame.north
+      \node[inner sep=0pt,anchor=north east,yshift=-3pt,xshift=-8pt,text=black] at (frame.north
       east){\rule{0.8em}{0.6pt}\quad$\square$\quad{\Large$\times$}};      
     }%
   },
@@ -207,12 +208,12 @@
     breakable,% 
     overlay unbroken = {%
       \node[inner sep=0pt,anchor=north
-      east,yshift=-5pt,xshift=-5pt,text=white] at (frame.north
+      east,yshift=-3pt,xshift=-5pt,text=white] at (frame.north
       east){\UbuntuMin\UbuntuMax\UbuntuClose};%      
     },%
     overlay first = {%
       \node[inner sep=0pt,anchor=north
-      east,yshift=-5pt,xshift=-5pt,text=white] at (frame.north
+      east,yshift=-3pt,xshift=-5pt,text=white] at (frame.north
       east){\UbuntuMin\UbuntuMax\UbuntuClose};%      
     },%    
     fonttitle=\sffamily,%\bfseries,%
@@ -287,9 +288,9 @@
     colframe=blue!75!black,%
     left=4.5mm,
     enhanced,%
-    colframe=tcbcol@back!60!black,%
-    colback=tcbcol@back!30!white,%
-    colbacktitle=tcbcol@back!5!yellow!10!white,%
+    colframe=tcbcolback!60!black,%
+    colback=tcbcolback!30!white,%
+    colbacktitle=tcbcolback!5!yellow!10!white,%
     fonttitle=\bfseries,%
     coltitle=black,%
     attach boxed title to top center={%
@@ -303,15 +304,15 @@
     varwidth boxed title*=-3cm,%
     boxed title style={%
       frame code={%
-        \path[fill=tcbcol@back!30!black]([yshift=-1mm,xshift=-1mm]frame.north
+        \path[fill=tcbcolback!30!black]([yshift=-1mm,xshift=-1mm]frame.north
         west)%
         arc[start angle=0,end
         angle=180,radius=1mm]([yshift=-1mm,xshift=1mm]frame.north
         east)%
         arc[start angle=180,end angle=0,radius=1mm];%
-        \path[left color=tcbcol@back!60!black,right
-        color=tcbcol@back!60!black,middle
-        color=tcbcol@back!80!black]([xshift=-2mm]frame.north west)%
+        \path[left color=tcbcolback!60!black,right
+        color=tcbcolback!60!black,middle
+        color=tcbcolback!80!black]([xshift=-2mm]frame.north west)%
         --([xshift=2mm]frame.north east)[rounded corners=1mm]%
         --([xshift=1mm,yshift=-1mm]frame.north east)%
         --(frame.south east)%
@@ -341,7 +342,7 @@
     left=4.5mm,
     right=0mm,
     enhanced,
-    colframe=tcbcol@back!60!black,
+    colframe=tcbcolback!60!black,
     colback=white,
     colbacktitle=cvgray,
     fonttitle=\ttfamily,
@@ -366,7 +367,7 @@
 % minted part
 %------------------------------------------------------------------------------------
 \makeatletter
-\minted@def@optfv{highlightlinenumbercolor}%需要fvextra.sty包放在当前路径，暂不明白为什么
+\minted@def@optfv{highlightlinenumbercolor}%
 \minted@def@optfv{linenumberwidth}
 \makeatother
 
@@ -397,7 +398,7 @@
     numbersep=3mm%
   },%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   appledark,%
   title={#2},%
@@ -420,7 +421,7 @@
     numbersep=3mm%
   },%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   applelight,%
   title={#2},%
@@ -482,7 +483,7 @@
     numbersep=3mm%
   },%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   appledark,%
   listing file={#3},
@@ -507,7 +508,7 @@
     numbersep=3mm%
   },%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   applelight,%
   listing file={#3},
@@ -576,7 +577,7 @@
     numbersep=3mm%    
   },%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   win10dark,%
   title={#2},%
@@ -599,7 +600,7 @@
     numbersep=3mm%
   },%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   win10light,%
   title={#2},%
@@ -661,7 +662,7 @@
     numbersep=3mm%
   },%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   win10dark,%
   listing file={#3},
@@ -686,7 +687,7 @@
     numbersep=3mm%
   },%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   win10light,%
   listing file={#3},
@@ -756,7 +757,7 @@
     numbersep=3mm%
   },%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   udark,%
   title={#2},%
@@ -779,7 +780,7 @@
     numbersep=3mm%
   },%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   ulight,%
   title={#2},%
@@ -841,7 +842,7 @@
     numbersep=3mm%
   },%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   udark,%
   listing file={#3},
@@ -866,7 +867,7 @@
     numbersep=3mm%
   },%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   ulight,%
   listing file={#3},
@@ -930,7 +931,7 @@
     numbersep=3mm%
   },%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   gitexample,%
   title={#3},%
@@ -962,7 +963,7 @@
 \DeclareTCBListing{langPyTwo}{ O{python} m m }{%
   overlay={%
     \begin{tcbclipinterior}
-      \fill[tcbcol@back!80!black] (frame.south west) rectangle
+      \fill[tcbcolback!80!black] (frame.south west) rectangle
       ([xshift=6mm]frame.north west);
     \end{tcbclipinterior}%
   },%
@@ -970,12 +971,12 @@
   minted style=trac,%
   minted options={%
     highlightcolor={
-      tcbcol@back!30!white,
-      tcbcol@back!30!white
+      tcbcolback!30!white,
+      tcbcolback!30!white
     },
     highlightlinenumbercolor={
-      tcbcol@back!80!black,
-      tcbcol@back!80!black
+      tcbcolback!80!black,
+      tcbcolback!80!black
     },
     breaklines,%
     fontsize=\wuhao,%
@@ -983,8 +984,8 @@
     numbersep=1mm%
   },%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
-  collower=tcbcol@back!60!black,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
+  collower=tcbcolback!60!black,%
   title={#3},%
   lang,%
   comment={\small\sffamily#2},%
@@ -997,7 +998,7 @@
 \DeclareTCBListing{langPyOne}{ O{python} m }{%
   overlay={%
     \begin{tcbclipinterior}
-      \fill[tcbcol@back!80!black] (frame.south west) rectangle
+      \fill[tcbcolback!80!black] (frame.south west) rectangle
        ([xshift=6mm]frame.north west);
     \end{tcbclipinterior}%
   },%
@@ -1005,12 +1006,12 @@
   minted style=trac,%
   minted options={%
     highlightcolor={
-      tcbcol@back!30!white,
-      tcbcol@back!30!white
+      tcbcolback!30!white,
+      tcbcolback!30!white
     },
     highlightlinenumbercolor={
-      tcbcol@back!80!black,
-      tcbcol@back!80!black
+      tcbcolback!80!black,
+      tcbcolback!80!black
     },
     breaklines,%
     fontsize=\wuhao,%
@@ -1098,7 +1099,7 @@
 \DeclareTCBInputListing{\langPyfile}{ O{python} m m }{%
   overlay={%
     \begin{tcbclipinterior}
-      \fill[tcbcol@back!80!black] (frame.south west) rectangle
+      \fill[tcbcolback!80!black] (frame.south west) rectangle
       ([xshift=6mm]frame.north west);
     \end{tcbclipinterior}%
   },%
@@ -1106,12 +1107,12 @@
   minted style=trac,%
   minted options={%
     highlightcolor={
-      tcbcol@back!30!white,
-      tcbcol@back!30!white
+      tcbcolback!30!white,
+      tcbcolback!30!white
     },
     highlightlinenumbercolor={
-      tcbcol@back!80!black,
-      tcbcol@back!80!black
+      tcbcolback!80!black,
+      tcbcolback!80!black
     },
     breaklines,%
     fontsize=\wuhao,%
@@ -1180,7 +1181,7 @@
 % 第2个参数是窗口标题
 \DeclareTCBListing{macdarkc}{ m m }{%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   appledark,%
   title={#2},%
@@ -1196,7 +1197,7 @@
 % 第2个参数是窗口标题
 \DeclareTCBListing{maclightc}{ m m }{%  
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   applelight,%
   title={#2},%
@@ -1237,7 +1238,7 @@
 % 第3个参数是包含窗口内容的文件全路径名称(可以是相对路径)
 \newtcbinputlisting{\macdarkcfile}[3]{%  
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   appledark,%
   listing file={#3},
@@ -1255,7 +1256,7 @@
 % 第3个参数是包含窗口内容的文件全路径名称(可以是相对路径)
 \newtcbinputlisting{\maclightcfile}[3]{%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   applelight,%
   listing file={#3},
@@ -1303,7 +1304,7 @@
 % 第2个参数是窗口标题
 \DeclareTCBListing{windarkc}{ m m }{%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   win10dark,%
   title={#2},%
@@ -1319,7 +1320,7 @@
 % 第2个参数是窗口标题
 \DeclareTCBListing{winlightc}{ m m }{%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   win10light,%
   title={#2},%
@@ -1360,7 +1361,7 @@
 % 第3个参数是包含窗口内容的文件全路径名称(可以是相对路径)
 \newtcbinputlisting{\windarkcfile}[3]{%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   win10dark,%
   listing file={#3},
@@ -1378,7 +1379,7 @@
 % 第3个参数是包含窗口内容的文件全路径名称(可以是相对路径)
 \newtcbinputlisting{\winlightcfile}[3]{%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   win10light,%
   listing file={#3},
@@ -1427,7 +1428,7 @@
 % 第2个参数是窗口标题
 \DeclareTCBListing{ubtdarkc}{ m m }{%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   udark,%
   title={#2},%
@@ -1443,7 +1444,7 @@
 % 第2个参数是窗口标题
 \DeclareTCBListing{ubtlightc}{ m m }{%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   ulight,%
   title={#2},%
@@ -1484,7 +1485,7 @@
 % 第3个参数是包含窗口内容的文件全路径名称(可以是相对路径)
 \newtcbinputlisting{\ubtdarkcfile}[3]{%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   udark,%
   listing file={#3},
@@ -1502,7 +1503,7 @@
 % 第3个参数是包含窗口内容的文件全路径名称(可以是相对路径)
 \newtcbinputlisting{\ubtlightcfile}[3]{%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   ulight,%
   listing file={#3},
@@ -1548,7 +1549,7 @@
 %=================================== 
 \DeclareTCBListing{GitExample}{ O{bash} m m }{%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
   collower=linux,%
   gitexample,%
   title={#3},%
@@ -1578,13 +1579,13 @@
 \DeclareTCBListing{langPyTwo}{ O{python} m m }{%
   overlay={%
     \begin{tcbclipinterior}
-      \fill[tcbcol@back!80!black] (frame.south west) rectangle
+      \fill[tcbcolback!80!black] (frame.south west) rectangle
       ([xshift=5mm]frame.north west);
     \end{tcbclipinterior}%
   },%
   listing and comment,%
-  colbacklower=tcbcol@back!5!yellow!10!white,%
-  collower=tcbcol@back!60!black,%
+  colbacklower=tcbcolback!5!yellow!10!white,%
+  collower=tcbcolback!60!black,%
   title={#3},%
   lang,%
   comment={\small\sffamily#2},%
@@ -1600,7 +1601,7 @@
 \DeclareTCBListing{langPyOne}{ O{python} m }{%
   overlay={%
     \begin{tcbclipinterior}
-      \fill[tcbcol@back!80!black] (frame.south west) rectangle
+      \fill[tcbcolback!80!black] (frame.south west) rectangle
       ([xshift=5mm]frame.north west);
     \end{tcbclipinterior}%
   },%
@@ -1639,7 +1640,7 @@
 \DeclareTCBInputListing{\langPyfile}{ O{python} m m }{%
   overlay={%
     \begin{tcbclipinterior}
-      \fill[tcbcol@back!80!black] (frame.south west) rectangle
+      \fill[tcbcolback!80!black] (frame.south west) rectangle
       ([xshift=5mm]frame.north west);
     \end{tcbclipinterior}%
   },%
@@ -1693,9 +1694,8 @@
     \end{tcbclipinterior}
   }
 }% end \langCVfile  
-
-
 \fi
+
 \endinput
 %%
-%% End of file `indentfirst.sty'.
+%% End of file `boxie.sty'.
