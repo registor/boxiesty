@@ -46,6 +46,30 @@
 \definecolor{WinGray}{HTML}{FFFFFF}
 \definecolor{WinBlue}{HTML}{1883D7}
 
+% success
+\definecolor{colorSuccess}{HTML}{28a745}
+\definecolor{colorSuccessBorder}{HTML}{c3e6cb}
+\definecolor{colorSuccessBackground}{HTML}{d4edda}
+\definecolor{colorSuccessText}{HTML}{155724}
+
+% info
+\definecolor{colorInfo}{HTML}{17a2b8}
+\definecolor{colorInfoBorder}{HTML}{bee5eb}
+\definecolor{colorInfoBackground}{HTML}{d1ecf1}
+\definecolor{colorInfoText}{HTML}{0c5460}
+
+% danger
+\definecolor{colorDanger}{HTML}{dc3545}
+\definecolor{colorDangerBorder}{HTML}{f5c6cb}
+\definecolor{colorDangerBackground}{HTML}{f8d7da}
+\definecolor{colorDangerText}{HTML}{721c24}
+
+% warning
+\definecolor{colorWarning}{HTML}{ffc107}
+\definecolor{colorWarningBorder}{HTML}{ffeeba}
+\definecolor{colorWarningBackground}{HTML}{fff3cd}
+\definecolor{colorWarningText}{HTML}{856404}
+
 %------------------------------------------------------------------------------------
 % 中文字号设置
 %------------------------------------------------------------------------------------
@@ -275,6 +299,96 @@
     }%    
   }%
 }% end terminal style
+
+%------------------------------------------------------------------------------------
+% 定义文本框盒子
+%------------------------------------------------------------------------------------
+%% 带标题的文本框
+\newtcolorbox{titledBox}[1]{%
+  tikznode boxed title,
+  enhanced,
+  arc=3pt,
+  interior style={white},
+  attach boxed title to top center = {yshift=-\tcboxedtitleheight/2},
+  fonttitle=\normalfont,
+  colbacktitle=white,coltitle=black,
+  boxed title style={size=normal,colframe=white,boxrule=0pt},
+  boxrule=.5pt,
+  left=5pt, right=5pt, top=5pt, bottom=0pt,
+  boxsep=5pt,
+  title={#1},
+  halign=left,
+  fontupper=\kaishu
+}
+
+
+%% Note
+\newtcolorbox{noteBox}{%
+  enhanced,
+  arc=2pt,
+  boxrule=.5pt,
+  left=5pt, right=5pt, top=0pt, bottom=0pt,
+  boxsep=5pt,
+  colframe=colorInfoBorder,
+  colback=colorInfoBackground,
+  colbacktitle=colorInfoBackground,
+  coltext=colorInfoText,
+  title={\textcolor{colorInfoText}{\faStickyNote[regular]\hspace{.5em}\bfseries{注意}}},
+  titlerule=0pt,
+  halign=left,
+  fontupper=\kaishu
+}
+
+%% Important
+\newtcolorbox{importantBox}{%
+  enhanced,
+  arc=2pt,
+  boxrule=.5pt,
+  left=5pt, right=5pt, top=0pt, bottom=0pt,
+  boxsep=5pt,
+  colframe=colorWarningBorder,
+  colback=colorWarningBackground,
+  colbacktitle=colorWarningBackground,
+  coltext=colorWarningText,
+  title={\textcolor{colorWarningText}{\faExclamationCircle\hspace{.5em}\bfseries{重要}}},
+  titlerule=0pt,
+  halign=left,
+  fontupper=\kaishu
+}
+
+%% Tip
+\newtcolorbox{tipBox}{%
+  enhanced,
+  arc=2pt,
+  boxrule=.5pt,
+  left=5pt, right=5pt, top=0pt, bottom=0pt,
+  boxsep=5pt,
+  colframe=colorSuccessBorder,
+  colback=colorSuccessBackground,
+  colbacktitle=colorSuccessBackground,
+  coltext=colorSuccessText,
+  title={\textcolor{colorSuccessText}{\faCheckCircle\hspace{.5em}\bfseries{技巧}}},
+  titlerule=0pt,
+  halign=left,
+  fontupper=\kaishu
+}
+
+%% Warning
+\newtcolorbox{warningBox}{%
+  enhanced,
+  arc=2pt,
+  boxrule=.5pt,
+  left=5pt, right=5pt, top=0pt, bottom=0pt,
+  boxsep=5pt,
+  colframe=colorDangerBorder,
+  colback=colorDangerBackground,
+  colbacktitle=colorDangerBackground,
+  coltext=colorDangerText,
+  title={\textcolor{colorDangerText}{\faExclamationTriangle\hspace{.5em}\bfseries{警告}}},
+  titlerule=0pt,
+  halign=left,
+  fontupper=\kaishu
+}
 
 %------------------------------------------------------------------------------------
 % tcolorbox lang代码样式定义
