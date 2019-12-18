@@ -378,7 +378,7 @@
     drop shadow,%
     colframe=blue!75!black,%
     right=0pt,top=0pt,bottom=0pt,
-    left=0pt,
+    left=4.5mm,
     enhanced,%
     colframe=tcbcolback!60!black,%
     colback=tcbcolback!30!white,%
@@ -439,12 +439,12 @@
     coltitle=black,
     overlay broken = {
       \begin{tcbclipinterior}
-        \fill[cvblue] (frame.south west) rectangle ([xshift=5.9mm]frame.north west);
+        \fill[cvblue] (frame.south west) rectangle ([xshift=5mm]frame.north west);
       \end{tcbclipinterior}
     },
     underlay boxed title = {
       \begin{tcbclipinterior}
-        \fill[cvblue] (frame.south west) rectangle ([xshift=5.9mm,yshift=0mm]frame.north west);
+        \fill[cvblue] (frame.south west) rectangle ([xshift=5mm,yshift=0mm]frame.north west);
       \end{tcbclipinterior}
     }
   }
@@ -456,10 +456,10 @@
 %------------------------------------------------------------------------------------
 % minted part
 %------------------------------------------------------------------------------------
-\makeatletter
-\minted@def@optfv{highlightlinenumbercolor}%需要fvextra.sty包放在当前路径，暂不明白为什么
-\minted@def@optfv{linenumberwidth}
-\makeatother
+%\makeatletter
+%\minted@def@optfv{highlightlinenumbercolor}%需要fvextra.sty包放在当前路径，暂不明白为什么
+%\minted@def@optfv{linenumberwidth}
+%\makeatother
 
 % redefine the minted line number font
 \renewcommand{\theFancyVerbLine}{%
@@ -996,6 +996,7 @@
   minted options={%
     autogobble,%
     breaklines,%
+    mathescape,%
     fontsize=\small,%
     baselinestretch=0.6,%
     breaksymbolleft={},%
@@ -1016,6 +1017,7 @@
   minted style=default,%
   minted options={%
     autogobble,%
+    mathescape,%
     breaklines,%
     fontsize=\small,%
     numbersep=3mm%
@@ -1037,6 +1039,7 @@
   minted style=default,%
   minted options={%
     autogobble,%
+    mathescape,%
     breaklines,%
     fontsize=\small,%
     numbersep=3mm%
@@ -1054,20 +1057,21 @@
   overlay={%
     \begin{tcbclipinterior}
       \fill[tcbcolback!80!black] (frame.south west) rectangle
-      ([xshift=6mm]frame.north west);
+      ([xshift=5mm]frame.north west);
     \end{tcbclipinterior}%
   },%
   listing engine=minted,%
   minted style=default,%
   minted options={%
-    highlightcolor={
-      tcbcolback!30!white,
-      tcbcolback!30!white
-    },
-    highlightlinenumbercolor={
-      tcbcolback!80!black,
-      tcbcolback!80!black
-    },
+    %highlightcolor={
+    %  tcbcolback!30!white,
+    %  tcbcolback!30!white
+    %},
+    %highlightlinenumbercolor={
+    %  tcbcolback!80!black,
+    %  tcbcolback!80!black
+    %},
+    mathescape,
     breaklines,%
     fontsize=\small,%
     linenos,%
@@ -1089,6 +1093,7 @@
   listing engine=minted,%
   minted style=default,%
   minted options={%
+    mathescape,
     breaklines,%
     fontsize=\small,%
     %linenos,%
@@ -1109,14 +1114,14 @@
   listing engine=minted,
   minted style=default,
   minted options={
-    highlightcolor={
-      cvgray!50!white,
-      white
-    },
-    highlightlinenumbercolor={
-      cvblue,
-      cvblue!70
-    },
+    %highlightcolor={
+    %  cvgray!50!white,
+    %  white
+    %},
+    %highlightlinenumbercolor={
+    %  cvblue,
+    %  cvblue!70
+    %},
     mathescape,
     breaklines,
     fontsize=\small,
@@ -1142,14 +1147,14 @@
   listing engine=minted,
   minted style=default,
   minted options={
-    highlightcolor={
-      cvgray!50!white,
-      white
-    },
-    highlightlinenumbercolor={
-      cvblue,
-      cvblue!70
-    },
+    %highlightcolor={
+    %  cvgray!50!white,
+    %  white
+    %},
+    %highlightlinenumbercolor={
+    %  cvblue,
+    %  cvblue!70
+    %},
     mathescape,
     breaklines,
     fontsize=\small,
@@ -1176,20 +1181,21 @@
   overlay={%
     \begin{tcbclipinterior}
       \fill[tcbcolback!80!black] (frame.south west) rectangle
-      ([xshift=6mm]frame.north west);
+      ([xshift=5mm]frame.north west);
     \end{tcbclipinterior}%
   },%
   listing engine=minted,%
   minted style=default,%
   minted options={%
-    highlightcolor={
-      tcbcolback!30!white,
-      tcbcolback!30!white
-    },
-    highlightlinenumbercolor={
-      tcbcolback!80!black,
-      tcbcolback!80!black
-    },
+    %highlightcolor={
+    %  tcbcolback!30!white,
+    %  tcbcolback!30!white
+    %},
+    %highlightlinenumbercolor={
+    %  tcbcolback!80!black,
+    %  tcbcolback!80!black
+    %},
+    mathescape,
     breaklines,%
     fontsize=\small,%
     linenos,%
@@ -1212,7 +1218,7 @@
     autogobble,%
     breaklines,%
     fontsize=\small,%
-    numbersep=3mm%
+    numbersep=1mm%
   },%
   listing only,%
   gitexample,%
